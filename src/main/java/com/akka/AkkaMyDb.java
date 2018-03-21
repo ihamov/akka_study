@@ -17,6 +17,13 @@ public class AkkaMyDb extends AbstractLoggingActor {
 
 
     @Override
+    public void preStart(){
+        log.info("preStart method run...");
+    }
+
+
+
+    @Override
     public Receive createReceive() {
         return new ReceiveBuilder().match(SetRequest.class, message->{
             log.info("Received Set request: {}", message);
